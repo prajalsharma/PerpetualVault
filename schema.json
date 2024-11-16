@@ -1,0 +1,137 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "context": {
+        "contract": {
+            "abi": "https://example.com/abi/PerpetualVault.json",
+            "deployments": [
+                {
+                    "chainId": 1,
+                    "address": "0x1234567890abcdef1234567890abcdef12345678"
+                },
+                {
+                    "chainId": 11155111,
+                    "address": "0x6090149792dAAeE9D1D568c9f9a6F6B46AA29eFD"
+                }
+            ]
+        }
+    },
+    "metadata": {
+        "owner": "Perpetual Vault",
+        "info": {
+            "legalName": "Perpetual Vault Protocol",
+            "url": "https://perpetualvault.example.com",
+            "lastUpdate": "2024-01-01T00:00:00Z"
+        },
+        "token": {
+            "name": "USDC",
+            "ticker": "USDC",
+            "decimals": 6
+        },
+        "enums": {
+            "direction": {
+                "true": "Long",
+                "false": "Short"
+            }
+        }
+    },
+    "display": {
+        "formats": {
+            "openPosition(uint256 collateralInUSD, uint256 sizeInUSD, bool isLong)": {
+                "intent": "Open a Perpetual Position",
+                "fields": [
+                    {
+                        "path": "collateralInUSD",
+                        "label": "Collateral (USD)",
+                        "format": "raw",
+                        "params": {
+                            "tokenPath": "$.metadata.token"
+                        }
+                    },
+                    {
+                        "path": "sizeInUSD",
+                        "label": "Position Size (USD)",
+                        "format": "raw"
+                    },
+                    {
+                        "path": "isLong",
+                        "label": "Direction",
+                        "format": "enum",
+                        "params": {
+                            "$ref": "$.metadata.enums.direction"
+                        }
+                    }
+                ]
+            },
+            "increasePositionSize(bytes32 positionID, uint256 sizeChangeInUSD)": {
+                "intent": "Increase Position Size",
+                "fields": [
+                    {
+                        "path": "positionID",
+                        "label": "Position ID",
+                        "format": "raw"
+                    },
+                    {
+                        "path": "sizeChangeInUSD",
+                        "label": "Size Increase (USD)",
+                        "format": "raw"
+                    }
+                ]
+            },
+            "decreasePositionSize(bytes32 positionID, uint256 sizeChangeInUSD)": {
+                "intent": "Decrease Position Size",
+                "fields": [
+                    {
+                        "path": "positionID",
+                        "label": "Position ID",
+                        "format": "raw"
+                    },
+                    {
+                        "path": "sizeChangeInUSD",
+                        "label": "Size Decrease (USD)",
+                        "format": "raw"
+                    }
+                ]
+            },
+            "increasePositionCollateral(bytes32 positionID, uint256 collateralChange)": {
+                "intent": "Increase Position Collateral",
+                "fields": [
+                    {
+                        "path": "positionID",
+                        "label": "Position ID",
+                        "format": "raw"
+                    },
+                    {
+                        "path": "sizeChangeInUSD",
+                        "label": "Size Increase (USD)",
+                        "format": "raw"
+                    }
+                ]
+            },
+            "decreasePositionCollateral(bytes32 positionID, uint256 collateralChange)": {
+                "intent": "Decrease Position Collateral",
+                "fields": [
+                    {
+                        "path": "positionID",
+                        "label": "Position ID",
+                        "format": "raw"
+                    },
+                    {
+                        "path": "sizeChangeInUSD",
+                        "label": "Size Decrease (USD)",
+                        "format": "raw"
+                    }
+                ]
+            },
+            "liquidate(bytes32 positionID)": {
+                "intent": "Liquidate a Position",
+                "fields": [
+                    {
+                        "path": "positionID",
+                        "label": "Position ID",
+                        "format": "raw"
+                    }
+                ]
+            }
+        }
+    }
+}
