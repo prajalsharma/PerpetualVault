@@ -1,11 +1,18 @@
-## PerpetualVault
+# PerpetualVault   
 
+This project, **PerpetualVault**, is our official submission to the ETHGlobal Bangkok Hackathon. It’s a decentralized perpetual positions protocol focused on delivering security, transparency, and efficiency in trading, with Ledger integration for secure transaction signing.  
 
-This is an implementation of [mission #1](https://guardianaudits.notion.site/Mission-1-Perpetuals-028ca44faa264d679d6789d5461cfb13)
-from [Gateway](https://twitter.com/intogateway) (Advanced open course for auditors)
+## About Ledger Integration  
 
-# How does the system work?
-Our perpetual contract allows traders to open long or short positions on BTC with a given size and collateral, while also enabling liquidity providers to deposit and withdraw liquidity. The contract simulates Chainlink's AggregatorV3Interface to fetch real-time BTC/USD price feed, ensuring accurate and reliable pricing data for the trading operations.
+Ledger is a critical part of our security architecture. By integrating ERC-7730, we ensure users can sign transactions securely and transparently, leveraging Ledger's clear signing features. This not only enhances the safety of the platform but also builds trust in every interaction.  
+
+## What We Built  
+
+**PerpetualVault** allows traders to open long or short positions on BTC with customizable size and collateral. Liquidity providers can deposit and withdraw liquidity, supporting the protocol and earning rewards in return.  
+
+Our protocol simulates Chainlink’s `AggregatorV3Interface` to fetch real-time BTC/USD price data, guaranteeing accurate and reliable pricing for trading operations. This integration ensures fairness, decentralization, and transparency throughout the trading process.  
+
+By blending advanced perpetual trading mechanics with Ledger's cutting-edge security, **PerpetualVault** delivers a robust, secure, and user-friendly trading experience.
 
 # How to run
 1.  **Install Foundry**
